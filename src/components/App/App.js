@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import getMovieData from '../../utils/apiCall';
-import { MovieCard } from '../MovieCard/MovieCard';
+import { Route } from 'react-router-dom';
+import { MovieContainer } from '../MovieContainer/MovieContainer';
+import { Header } from '../Header/Header';
+import { connect } from 'react-redux';
 import './App.css';
 
-class App extends Component {
-  async foo() {
-    const dirtyMovieData = await getMovieData();
-    const cleanMovieData = dirtyMovieData.results;
-  }
-
+export class App extends Component {
   render() {
     return (
       <div className="App">
-        REACT YO FACE!
+        <Header />
+        <Route exact path='/' component={MovieContainer} />
+        <Route path='/favorites' component={MovieContainer} />
       </div>
     );
   }
 }
-
-export default App;
