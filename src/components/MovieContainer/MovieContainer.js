@@ -1,47 +1,43 @@
 import React, { Component } from 'react';
-import './MovieContainer.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
 import { fetchMovieData } from '../../utils/fetchMovieData';
 import { addMovies } from '../../actions';
+import { MovieCard } from '../MovieCard/MovieCard';
+import './MovieContainer.css';
 
-class MovieContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      movieData: []
-    };
-  }
-
+export class MovieContainer extends Component {
   getMovieData = async () => {
     const movieData = await fetchMovieData();
     this.props.addMovies(movieData);
-
-    this.setState({
-      movieData
-    });
   };
 
   componentDidMount = () => {
     this.getMovieData();
   };
 
+  movieCards = () => {
+    const movies = this.props.movies;
+
+    return movies.map((movie) => 
+      <MovieCard key={movie.movieId} {...movie} />
+    );
+  };
+
   render() {
     return (
       <main className="MovieContainer">
-        <h1>Movies</h1>
+        {this.movieCards()}
       </main>
     );
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addMovies: movies => dispatch(addMovies(movies))
 });
 
