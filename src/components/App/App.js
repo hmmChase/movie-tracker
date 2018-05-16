@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { MovieContainer } from '../MovieContainer/MovieContainer';
-import { Header } from '../Header/Header';
-import { connect } from 'react-redux';
-import './App.css';
 
-export class App extends Component {
+import { Route } from 'react-router-dom';
+
+import './App.css';
+import { Header } from '../Header/Header';
+import MovieContainer from '../MovieContainer/MovieContainer';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Route exact path='/' component={MovieContainer} />
-        <Route path='/favorites' component={MovieContainer} />
+        <Route exact path="/" component={MovieContainer} />
       </div>
     );
   }
 }
+
+export default App;

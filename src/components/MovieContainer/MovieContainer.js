@@ -1,66 +1,50 @@
 import React, { Component } from 'react';
+import './MovieContainer.css';
 import { connect } from 'react-redux';
-import getMovieData from '../../utils/apiCall';
+import { withRouter } from 'react-router-dom';
 
-export class MovieContainer extends Component {
+import { fetchMovieData } from '../../utils/fetchMovieData';
+import { addMovies } from '../../actions';
+
+class MovieContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       movieData: []
-    }
+    };
   }
 
-  fetchMovieData = async () => {
-    const movieData = await getMovieData();
-    const dirtyMovieData = await movieData.results;
-    
+  getMovieData = async () => {
+    const movieData = await fetchMovieData();
+    this.props.addMovies(movieData);
+
     this.setState({
-      movieData: dirtyMovieData
+      movieData
     });
   };
 
   componentDidMount = () => {
-    this.fetchMovieData();
-  }
-
-  cleanMovieData = () => {
-    const movieData = this.state.movieData;
-
-    return movieData.map(foo => foo.title);
-  }
+    this.getMovieData();
+  };
 
   render() {
     return (
-      <div>
-        <hr />
-        <h1>
-          {this.cleanMovieData()}
-        </h1>
-        <hr />
-      </div>
+      <main className="MovieContainer">
+        <h1>Movies</h1>
+      </main>
     );
   }
-};
+}
 
 const mapStateToProps = state => ({
-
+  movies: state.movies
 });
 
-export default connect(mapStateToProps)(MovieContainer);
+const mapDispatchToProps = dispatch => ({
+  addMovies: movies => dispatch(addMovies(movies))
+});
 
-// {
-//   users: {
-//     user_id: {
-//       favorites: {
-//         movie_id: {
-//           title: 'barf'
-//           poster: img
-//           release: 2008
-//           vote_avg: 3
-//           overview: 'stuff happened'
-//         }
-//       }
-//     }
-//   }
-  
-// }
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(MovieContainer)
+);
