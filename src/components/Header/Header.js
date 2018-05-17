@@ -1,84 +1,41 @@
-import React, { Component } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
-import { fetchUserData } from '../../utils/fetchUserData';
+import React from 'react';
+import { Route, NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 
-class Header extends Component {
-  constructor() {
-    super();
+const Header = () => {
+  const showDefaultState = (
+    <div>
+      <NavLink to='/login'>
+        <button>Login</button>
+      </NavLink>
+      <NavLink to='/signup'>
+        <button>Sign Up</button>
+      </NavLink>
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
+    </div>
+  );
 
-    this.state = {
-      email: '',
-      password: ''
-    };
-  }
-  // const displayLoggedIn = (
-  //   <div>
-  //     <p>Welcome userName</p>
-  //     <NavLink to="/favorites">Favorites</NavLink>;
-  //     <NavLink to="/">Sign Out</NavLink>
-  //   </div>
-  // );
+  const showLoggedInState = (
+    <div>
+      <p>Welcome back this.props.userName</p>
+      <button>Log Out</button>
+    </div>
+  );
 
-  // const displayLoggedOut = (
-  //   <div>
-  //     <form action="">
-  //       <input type="text" placeholder="Enter User Name" />
-  //       <input type="text" placeholder="Enter Password" />
-  //       <button>Login</button>
-  //     </form>
-  //     <NavLink to="/signup">Sign Up</NavLink>;
-  //   </div>
-  // );
+  return (
+    <header>
+      <NavLink to="/">
+        <h1>MOVIE TRACKER</h1>
+      </NavLink>
+    </header>
+  );
+};
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+export const mapStateToProps = state => ({
+  loggedIn: state.users.loggedIn
+});
 
-  handleSubmit = async event => {
-    event.preventDefault();
-    const userData = await fetchUserData();
-    const findUser = userData.data.find(
-      user => user.email === this.state.email
-    );
-    findUser.password === this.state.password 
-      ? <Redirect to="/" />
-      : alert('Incorrect Password');
-    this.setState({
-      email: '',
-      password: ''
-    });
-  };
-
-  render() {
-    return (
-      <header>
-        <NavLink to="/">
-          <h1>MOVIE TRACKER</h1>
-        </NavLink>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter Email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <button>Login</button>
-        </form>
-      </header>
-    );
-  }
-}
-// { userLoggedIn ? displayLoggedIn : displayLoggedOut }
-
-export default Header;
+export default withRouter(connect(mapStateToProps)(Header));
