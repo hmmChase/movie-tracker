@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, Redirect, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
-const Header = () => {
+const Header = props => {
   const showDefaultState = (
     <div>
-      <NavLink to='/login'>
+      <NavLink to="/login">
         <button>Login</button>
       </NavLink>
-      <NavLink to='/signup'>
+      <NavLink to="/signup">
         <button>Sign Up</button>
       </NavLink>
       <Route path="/login" component={Login} />
@@ -30,6 +30,14 @@ const Header = () => {
       <NavLink to="/">
         <h1>MOVIE TRACKER</h1>
       </NavLink>
+      {props.loggedIn ? (
+        <div>
+          {showLoggedInState}
+          <Redirect to="/" />;
+        </div>
+      ) : (
+        showDefaultState
+      )}
     </header>
   );
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
 import { toggleLogin } from '../../actions';
@@ -7,7 +7,7 @@ import { toggleLogin } from '../../actions';
 class Login extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       email: '',
       password: ''
@@ -16,7 +16,7 @@ class Login extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    
+
     this.setState({
       [name]: value
     });
@@ -28,7 +28,7 @@ class Login extends Component {
     const findUser = userData.data.find(
       user => user.email === this.state.email
     );
-    
+
     if (findUser.password === this.state.password) {
       this.props.toggleLogin();
     } else {
@@ -39,7 +39,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        { this.props.loggedIn && <Redirect to='/' /> }
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
