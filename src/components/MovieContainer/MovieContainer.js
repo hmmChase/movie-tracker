@@ -20,7 +20,7 @@ export class MovieContainer extends Component {
     const movies = this.props.movies;
 
     return movies.map((movie) => 
-      <MovieCard key={movie.movieId} {...movie} />
+      <MovieCard key={movie.movieId} {...movie} loggedIn={this.props.loggedIn}/>
     );
   };
 
@@ -34,7 +34,8 @@ export class MovieContainer extends Component {
 }
 
 export const mapStateToProps = state => ({
-  movies: state.movies
+  movies: state.movies,
+  loggedIn: state.users.loggedIn
 });
 
 export const mapDispatchToProps = dispatch => ({

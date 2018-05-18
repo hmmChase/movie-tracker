@@ -21,7 +21,7 @@ const Header = props => {
 
   const showLoggedInState = (
     <div>
-      <p>Welcome back this.props.userName</p>
+      <p>Welcome back props.userName</p>
       <button onClick={props.toggleLogin}>Log Out</button>
     </div>
   );
