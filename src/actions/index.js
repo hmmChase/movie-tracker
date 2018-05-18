@@ -3,6 +3,7 @@ export const addMovies = movies => ({
   movies
 });
 
-export const toggleLogin = () => ({
-  type: 'TOGGLE_LOGIN'
+export const toggleLogin = name => ({
+  type: 'TOGGLE_LOGIN',
+  name
 });

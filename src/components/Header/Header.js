@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { toggleLogin } from '../../actions';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
@@ -21,7 +22,7 @@ const Header = props => {
   const showLoggedInState = (
     <div>
       <p>Welcome back this.props.userName</p>
-      <button>Log Out</button>
+      <button onClick={props.toggleLogin}>Log Out</button>
     </div>
   );
 
@@ -33,7 +34,7 @@ const Header = props => {
       {props.loggedIn ? (
         <div>
           {showLoggedInState}
-          <Redirect to="/" />;
+          <Redirect to="/" />
         </div>
       ) : (
         showDefaultState
@@ -46,4 +47,8 @@ export const mapStateToProps = state => ({
   loggedIn: state.users.loggedIn
 });
 
-export default withRouter(connect(mapStateToProps)(Header));
+export const mapDispatchToProps = dispatch => ({
+  toggleLogin: () => dispatch(toggleLogin())
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

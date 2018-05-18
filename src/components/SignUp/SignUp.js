@@ -73,6 +73,4 @@ class Signup extends Component {
   }
 }
 
-// mapDispatchToProps = dispath => {};
-
 export default Signup;
