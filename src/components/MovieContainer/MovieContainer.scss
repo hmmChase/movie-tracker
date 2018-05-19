@@ -1,4 +1,6 @@
 .MovieContainer {
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: center;
+  flex-wrap: wrap;
+  // vertical-align: top;
 }
