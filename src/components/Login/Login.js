@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
-import { toggleLogin } from '../../actions';
+import { toggleLogin, storeUserData } from '../../actions';
 
 class Login extends Component {
   constructor(props) {
@@ -25,12 +25,14 @@ class Login extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const userData = await fetchUserData();
-    const findUser = userData.data.find(
+    const foundUser = userData.data.find(
       user => user.email === this.state.email
     );
 
-    if (findUser.password === this.state.password) {
+
+    if (foundUser.password === this.state.password) {
       this.props.toggleLogin();
+      this.props.storeUserData(foundUser);
     } else {
       alert('Incorrect Password');
     }
@@ -62,11 +64,12 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.users.loggedIn
+  loggedIn: state.user.loggedIn
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleLogin: () => dispatch(toggleLogin())
+  toggleLogin: () => dispatch(toggleLogin()),
+  storeUserData: (userData) => dispatch(storeUserData(userData))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
