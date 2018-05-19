@@ -1,8 +1,7 @@
 import React from 'react';
 import './MovieCard.css';
 
-export const MovieCard = (props) => {
-  const { movieId, posterPath, title, releaseDate, voteAverage, overview } = props;
+const MovieCard = ({ movieId, posterPath, title, releaseDate, voteAverage, overview, toggleFavorite }) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
   const imageUrl = baseUrl + posterPath;
 
@@ -13,6 +12,9 @@ export const MovieCard = (props) => {
       <p>Release Date: {releaseDate}</p>
       <p>Vote Average: {voteAverage}</p>
       <p>Overview: {overview}</p>
+      <button onClick={() => toggleFavorite(movieId)}>Add to Favorites</button>
     </div>
   );
-}
+};
+
+export default MovieCard;

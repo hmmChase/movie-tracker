@@ -21,8 +21,13 @@ const Header = props => {
 
   const showLoggedInState = (
     <div>
-      <p>Welcome back this.props.userName</p>
-      <button onClick={props.toggleLogin}>Log Out</button>
+      <p>Welcome back, {props.name}</p>
+      <NavLink to='/'> 
+        <button onClick={props.toggleLogin}>Log Out</button>
+      </NavLink>
+      <NavLink to="/favorites">
+        <button>Favorites</button>
+      </NavLink>
     </div>
   );
 
@@ -44,7 +49,8 @@ const Header = props => {
 };
 
 export const mapStateToProps = state => ({
-  loggedIn: state.users.loggedIn
+  loggedIn: state.user.loggedIn,
+  name: state.user.name
 });
 
 export const mapDispatchToProps = dispatch => ({

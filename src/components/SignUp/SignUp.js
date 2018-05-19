@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { mapDispatchToProps } from '../MovieContainer/MovieContainer';
 import { fetchUserData } from '../../utils/fetchUserData';
 
 class Signup extends Component {
