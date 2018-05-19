@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchMovieData } from '../../utils/fetchMovieData';
-import { addMovies } from '../../actions';
-import MovieCard from '../MovieCard/MovieCard';
 import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import { addMovies, loadFavorites } from '../../actions';
+import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 
 export class MovieContainer extends Component {
@@ -14,28 +14,28 @@ export class MovieContainer extends Component {
     this.props.addMovies(movieData);
   };
 
-  toggleFavorite = (movieId) => {
+  toggleFavorite = movieId => {
     if (this.props.loggedIn) {
-      this.checkIfFavorite(movieId) ? this.addFavorite(movieId) : this.removeFavorite();
+      this.checkIfFavorite(movieId) ? this.removeFavorite(this.props.userId, movieId) : this.addFavorite(movieId);
     } else {
       alert('You must be logged in to add favorites');
     }
   };
 
-  checkIfFavorite = async movieId => {
-    const favoritesArray = await fetchFavorites(this.props.id);
+  checkIfFavorite = movieId => {
+    const favoritesArray = this.props.favorites;
 
-    return favoritesArray.find(favorite => favorite.movieId === movieId);
+    return favoritesArray.some(favorite => favorite.movieId === movieId);
   };
 
-  addFavorite = (movieId) => {
+  addFavorite = async movieId => {
     const url = 'http://localhost:3000/api/users/favorites/new';
     const findMovie = this.props.movies.find(movie => movie.movieId === movieId);
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        movie_id: findMovie.movieId, 
-        user_id: this.props.id, 
+        movie_id: findMovie.movieId,
+        user_id: this.props.userId,
         title: findMovie.title,
         poster_path: findMovie.posterPath,
         release_date: findMovie.releaseDate,
@@ -44,21 +44,35 @@ export class MovieContainer extends Component {
       }),
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(url, options);
+    await fetch(url, options);
+    const favoritesArray = await fetchFavorites(this.props.userId);
+
+    this.props.loadFavorites(favoritesArray);
   };
 
-  componentDidMount = async () => {
+  removeFavorite = async (userId, movieId) => {
+    const url = `http://localhost:3000/api/users/${userId}/favorites/${movieId}`;;
+    const options = { method: 'DELETE' };
+
+    await fetch(url, options);
+    
+    const favoritesArray = await fetchFavorites(this.props.userId);
+
+    this.props.loadFavorites(favoritesArray);
+  };
+
+  componentDidMount = () => {
     this.getMovieData();
   };
 
-  favoriteCards = () => {
-    
-  }
 
   movieCards = () => {
-    const movies = this.props.movies;
+    const movies = 
+    this.props.location.pathname === '/favorites'
+      ? this.props.favorites
+      : this.props.movies
 
-    return movies.map((movie) => 
+    return movies.map(movie => 
       <MovieCard key={movie.movieId} {...movie} toggleFavorite={this.toggleFavorite} />
     );
   };
@@ -74,12 +88,14 @@ export class MovieContainer extends Component {
 
 export const mapStateToProps = state => ({
   movies: state.movies,
+  favorites: state.user.favorites,
   loggedIn: state.user.loggedIn,
-  id: state.user.id
+  userId: state.user.id
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addMovies: movies => dispatch(addMovies(movies))
+  addMovies: movies => dispatch(addMovies(movies)),
+  loadFavorites: (userId) => dispatch(loadFavorites(userId))
 });
 
 export default withRouter(
