@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
-import { toggleLogin, storeUserData } from '../../actions';
+import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import { toggleLogin, storeUserData, loadFavorites } from '../../actions';
 
 class Login extends Component {
   constructor(props) {
@@ -28,11 +29,16 @@ class Login extends Component {
     const foundUser = userData.data.find(
       user => user.email === this.state.email
     );
+    
+    if (!foundUser) {
+      alert('No such user');
+    } else if (foundUser.password === this.state.password) {
+      const favoritesArray = await fetchFavorites(foundUser.id);
 
-
-    if (foundUser.password === this.state.password) {
       this.props.toggleLogin();
       this.props.storeUserData(foundUser);
+      this.props.loadFavorites(favoritesArray);
+      this.props.history.push('/');
     } else {
       alert('Incorrect Password');
     }
@@ -64,12 +70,14 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.user.loggedIn
+  loggedIn: state.user.loggedIn,
+  favorites: state.user.favorites
 });
 
 const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
-  storeUserData: (userData) => dispatch(storeUserData(userData))
+  storeUserData: (userData) => dispatch(storeUserData(userData)),
+  loadFavorites: (favoritesArray) => dispatch(loadFavorites(favoritesArray))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

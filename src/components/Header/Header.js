@@ -1,11 +1,16 @@
 import React from 'react';
-import { Route, Redirect, NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { toggleLogin } from '../../actions';
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
+import { toggleLogin, loadFavorites } from '../../actions';
+import { fetchFavorites } from '../../utils/fetchFavoriteData';
 
 const Header = props => {
+  const handleClick = async () => {
+    const favoritesArray = await fetchFavorites(props.userId);
+
+    props.loadFavorites(favoritesArray);
+  };
+
   const showDefaultState = (
     <div>
       <NavLink to="/login">
@@ -14,8 +19,6 @@ const Header = props => {
       <NavLink to="/signup">
         <button>Sign Up</button>
       </NavLink>
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
     </div>
   );
 
@@ -26,7 +29,7 @@ const Header = props => {
         <button onClick={props.toggleLogin}>Log Out</button>
       </NavLink>
       <NavLink to="/favorites">
-        <button>Favorites</button>
+        <button onClick={handleClick}>Favorites</button>
       </NavLink>
     </div>
   );
@@ -39,7 +42,6 @@ const Header = props => {
       {props.loggedIn ? (
         <div>
           {showLoggedInState}
-          <Redirect to="/" />
         </div>
       ) : (
         showDefaultState
@@ -50,11 +52,13 @@ const Header = props => {
 
 export const mapStateToProps = state => ({
   loggedIn: state.user.loggedIn,
-  name: state.user.name
+  name: state.user.name,
+  userId: state.user.id
 });
 
 export const mapDispatchToProps = dispatch => ({
-  toggleLogin: () => dispatch(toggleLogin())
+  toggleLogin: () => dispatch(toggleLogin()),
+  loadFavorites: (userId) => dispatch(loadFavorites(userId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

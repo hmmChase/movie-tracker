@@ -1,19 +1,26 @@
 .MovieCard {
   display: flex;
   flex-direction: column;
-  width: 204px;
-  height: 500px;
+  text-align: left;
+  width: 15%;
+  height: 550px;
   margin: 20px;
   border: 2px solid #000; }
+
+.MovieCard:hover {
+  transform: scale(1.1);
+  box-shadow: 6px 0 15px -4px rgba(201, 127, 36, 0.845), -6px 0 8px -4px rgba(201, 127, 36, 0.845); }
 
 .card-body {
   padding: 20px; }
 
-img {
-  vertical-align: top; }
-
 h2 {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  margin-bottom: .5em; }
 
 p {
-  font-size: 1em; }
+  font-size: 1em;
+  margin-bottom: .3em; }
+
+.bold-text {
+  font-weight: bold; }

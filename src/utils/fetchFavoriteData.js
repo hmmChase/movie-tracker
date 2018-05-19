@@ -1,4 +1,3 @@
-
 import { doFetch } from './doFetch';
 
 export const fetchFavorites = async userId => {

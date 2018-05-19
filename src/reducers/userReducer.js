@@ -1,10 +1,22 @@
-const initalState = {loggedIn: false};
+const initalState = {
+  loggedIn: false,
+  favorites: []
+};
 
 const userReducer = (state = initalState, action) => {
   switch (action.type) {
     case 'TOGGLE_LOGIN':
-      return {loggedIn: !state.loggedIn};
+      return {
+        ...state,
+        loggedIn: !state.loggedIn
+      };
     // break;
+    case 'LOAD_FAVORITES':
+      return {
+        ...state,
+        favorites: action.favorites
+      };
+      // break;
     case 'STORE_USER_DATA':
       return {
         ...state,

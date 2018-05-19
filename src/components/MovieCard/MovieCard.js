@@ -17,18 +17,18 @@ const MovieCard = props => {
   return (
     <div className="MovieCard" id={movieId}>
       <img src={imageUrl} alt="movie poster" />
-      <div clasName="card-body">
+      <button onClick={() => toggleFavorite(movieId)}>
+        Add to Favorites
+      </button>
+      <div className="card-body">
         <h2>{title}</h2>
-        <p>Release Date: {releaseDate}</p>
-        <p>Vote Average: {voteAverage}</p>
+        <p><span className="bold-text">Release Date:</span> {releaseDate}</p>
+        <p><span className="bold-text">Vote Average:</span> {voteAverage}</p>
         <p>
           {overview.length > 100
             ? overview.substring(0, 100) + '...'
             : overview}
         </p>
-        <button onClick={() => toggleFavorite(movieId)}>
-          Add to Favorites
-        </button>
       </div>
     </div>
   );

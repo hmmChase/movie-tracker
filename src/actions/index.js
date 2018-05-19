@@ -12,3 +12,8 @@ export const storeUserData = ({ id, name }) => ({
   id,
   name
 });
+
+export const loadFavorites = favorites => ({
+  type: 'LOAD_FAVORITES',
+  favorites
+});
