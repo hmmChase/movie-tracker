@@ -25,7 +25,7 @@ const Header = props => {
   const showLoggedInState = (
     <div>
       <p>Welcome back, {props.name}</p>
-      <NavLink to='/'> 
+      <NavLink to="/">
         <button onClick={props.toggleLogin}>Log Out</button>
       </NavLink>
       <NavLink to="/favorites">
@@ -39,13 +39,7 @@ const Header = props => {
       <NavLink to="/">
         <h1>MOVIE TRACKER</h1>
       </NavLink>
-      {props.loggedIn ? (
-        <div>
-          {showLoggedInState}
-        </div>
-      ) : (
-        showDefaultState
-      )}
+      {props.loggedIn ? <div>{showLoggedInState}</div> : showDefaultState}
     </header>
   );
 };
@@ -58,7 +52,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
-  loadFavorites: (userId) => dispatch(loadFavorites(userId))
+  loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

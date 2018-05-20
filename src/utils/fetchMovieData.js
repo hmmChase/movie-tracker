@@ -3,18 +3,17 @@ import { doFetch } from './doFetch';
 
 export const fetchMovieData = async () => {
   const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=';
-
   const dirtyMovieData = await doFetch(url + apiKey);
   return cleanMovieData(dirtyMovieData.results);
 };
 
 export const cleanMovieData = movieData => {
   return movieData.map(movie => ({
-    movieId: movie.id,
+    movie_id: movie.id,
     title: movie.title,
-    posterPath: movie.poster_path,
-    releaseDate: movie.release_date,
-    voteAverage: movie.vote_average,
+    poster_path: movie.poster_path,
+    release_date: movie.release_date,
+    vote_average: movie.vote_average,
     overview: movie.overview
   }));
 };
