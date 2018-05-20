@@ -9,16 +9,21 @@ const MovieCard = props => {
     release_date,
     vote_average,
     overview,
-    toggleFavorite
+    toggleFavorite,
+    isFavorite
   } = props;
   const baseUrl = 'https://image.tmdb.org/t/p/w200';
   const imageUrl = baseUrl + poster_path;
+  const styleToggle = isFavorite(movie_id) ? 'favorited' : '';
 
   return (
-    <div className="MovieCard" id={movie_id}>
+    <div className={`MovieCard ${styleToggle}`} id={movie_id}>
       <img src={imageUrl} alt="movie poster" />
-      <button onClick={() => toggleFavorite(movie_id)}>Add to Favorites</button>
-      <div className="card-body">
+      <div 
+        className="favoriteToggle"
+        onClick={() => toggleFavorite(movie_id)}>_
+      </div>
+      <div className="cardBody">
         <h2>{title}</h2>
         <p>
           <span className="bold-text">Release Date:</span> {release_date}
