@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
+import { fetchAddUser } from '../../utils/fetchAddUser';
+import { toggleLogin, storeUserData } from '../../actions';
 
 class Signup extends Component {
   constructor() {
@@ -21,22 +25,22 @@ class Signup extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const userData = await fetchUserData();
-    const findUser = userData.data.find(
-      user => user.email === this.state.email
-    );
-
-    findUser ? alert('This email is already in use') : this.addUser();
+    const foundUser = await this.findUser();
+    foundUser ? alert('This email is already in use') : this.addUser();
   };
 
-  addUser = () => {
-    const url = 'http://localhost:3000/api/users/new';
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: { 'Content-Type': 'application/json' }
-    };
-    fetch(url, options);
+  addUser = async () => {
+    await fetchAddUser(this.state);
+    await fetchUserData();
+    const foundUser = await this.findUser();
+    this.props.storeUserData(foundUser);
+    this.props.toggleLogin();
+    this.props.history.push('/');
+  };
+
+  findUser = async () => {
+    const userData = await fetchUserData();
+    return userData.data.find(user => user.email === this.state.email);
   };
 
   render() {
@@ -72,4 +76,9 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+const mapDispatchToProps = dispatch => ({
+  toggleLogin: () => dispatch(toggleLogin()),
+  storeUserData: userData => dispatch(storeUserData(userData))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
