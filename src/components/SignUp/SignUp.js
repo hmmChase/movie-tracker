@@ -40,7 +40,9 @@ class Signup extends Component {
 
   findUser = async () => {
     const userData = await fetchUserData();
-    return userData.data.find(user => user.email === this.state.email);
+    return userData.data.find(
+      user => user.email === this.state.email.toLowerCase()
+    );
   };
 
   render() {

@@ -27,9 +27,9 @@ class Login extends Component {
     event.preventDefault();
     const userData = await fetchUserData();
     const foundUser = userData.data.find(
-      user => user.email === this.state.email
+      user => user.email === this.state.email.toLowerCase()
     );
-    
+
     if (!foundUser) {
       alert('No such user');
     } else if (foundUser.password === this.state.password) {
@@ -76,8 +76,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
-  storeUserData: (userData) => dispatch(storeUserData(userData)),
-  loadFavorites: (favoritesArray) => dispatch(loadFavorites(favoritesArray))
+  storeUserData: userData => dispatch(storeUserData(userData)),
+  loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
