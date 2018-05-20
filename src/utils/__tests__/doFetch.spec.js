@@ -11,10 +11,14 @@ describe('doFetch', () => {
     );
   });
 
-  it('calls fetch', async () => {
-    await doFetch();
+  it('calls fetch with correct params', async () => {
+    const url = 'www.google.com';
+    const options = {};
+
+    await doFetch(url, options);
 
     expect(window.fetch).toHaveBeenCalledTimes(1);
+    expect(window.fetch).toHaveBeenLastCalledWith(url, options);
   });
 
   it('returns response data if response.ok is true', async () => {
