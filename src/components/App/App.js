@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
-import MovieContainer from '../MovieContainer/MovieContainer';
+import Header from '../../containers/Header/Header';
+import Login from '../../containers/Login/Login';
+import SignUp from '../../containers/SignUp/SignUp';
+import MovieContainer from '../../containers/MovieContainer/MovieContainer';
 
 import './App.css';
 

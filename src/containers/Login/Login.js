@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
-import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import { toggleLogin, storeUserData, loadFavorites } from '../../actions';
 
 class Login extends Component {
@@ -33,7 +33,7 @@ class Login extends Component {
     if (!foundUser) {
       alert('No such user');
     } else if (foundUser.password === this.state.password) {
-      const favoritesArray = await fetchFavorites(foundUser.id);
+      const favoritesArray = await fetchFavoriteData(foundUser.id);
 
       this.props.toggleLogin();
       this.props.storeUserData(foundUser);
