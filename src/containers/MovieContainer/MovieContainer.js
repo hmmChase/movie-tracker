@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchMovieData } from '../../utils/fetchMovieData';
-import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import { fetchAddFavorite } from '../../utils/fetchAddFavorite';
 import { fetchRemoveFavorite } from '../../utils/fetchRemoveFavorite';
 import { addMovies, loadFavorites } from '../../actions';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import './MovieContainer.css';
 
 export class MovieContainer extends Component {
@@ -42,13 +42,13 @@ export class MovieContainer extends Component {
     );
     const userId = this.props.userId;
     await fetchAddFavorite(foundMovie, userId);
-    const favoritesArray = await fetchFavorites(this.props.userId);
+    const favoritesArray = await fetchFavoriteData(this.props.userId);
     this.props.loadFavorites(favoritesArray);
   };
 
   removeFavorite = async (userId, movieId) => {
     await fetchRemoveFavorite(userId, movieId);
-    const favoritesArray = await fetchFavorites(this.props.userId);
+    const favoritesArray = await fetchFavoriteData(this.props.userId);
     this.props.loadFavorites(favoritesArray);
   };
 

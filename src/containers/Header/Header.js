@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { toggleLogin, loadFavorites } from '../../actions';
-import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import './Header.css';
 
 const Header = props => {
   const handleClick = async () => {
-    const favoritesArray = await fetchFavorites(props.userId);
+    const favoritesArray = await fetchFavoriteData(props.userId);
 
     props.loadFavorites(favoritesArray);
   };
