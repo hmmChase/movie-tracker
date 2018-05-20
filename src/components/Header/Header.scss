@@ -1,0 +1,32 @@
+.userControls {
+  text-align: right;
+  position: relative;
+  bottom: 120px;
+
+  button {
+    background: #77b6e0;
+    background-image: linear-gradient(to bottom, #77b6e0, #417494);
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-right: 1.5rem;
+  }
+
+  button:hover {
+    background: #59a5d4;
+    background-image: linear-gradient(to bottom, #59a5d4, #3a84b5);
+    cursor: pointer;
+  }
+
+  p {
+    color: lightblue;
+    font-size: 1.5rem;
+    position: relative;
+    top: 15px;
+    right: 100px;
+  }
+}

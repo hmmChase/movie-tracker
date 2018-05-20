@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { NavLink, withRouter } from 'react-router-dom';
 import { toggleLogin, loadFavorites } from '../../actions';
 import { fetchFavorites } from '../../utils/fetchFavoriteData';
+import './Header.css';
 
 const Header = props => {
   const handleClick = async () => {
@@ -12,7 +13,7 @@ const Header = props => {
   };
 
   const showDefaultState = (
-    <div>
+    <div className="userControls">
       <NavLink to="/login">
         <button>Login</button>
       </NavLink>
@@ -23,23 +24,30 @@ const Header = props => {
   );
 
   const showLoggedInState = (
-    <div>
-      <p>Welcome back, {props.name}</p>
-      <NavLink to="/">
+    <div className="userControls">
+      <NavLink to='/'> 
         <button onClick={props.toggleLogin}>Log Out</button>
       </NavLink>
       <NavLink to="/favorites">
         <button onClick={handleClick}>Favorites</button>
       </NavLink>
+      <p>Welcome back, {props.name}</p>
     </div>
   );
 
   return (
     <header>
       <NavLink to="/">
-        <h1>MOVIE TRACKER</h1>
+        <img 
+          src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+          alt="movie-tracker logo" 
+          className="headerLogo"
+        />
       </NavLink>
-      {props.loggedIn ? <div>{showLoggedInState}</div> : showDefaultState}
+      {props.loggedIn 
+        ? showLoggedInState
+        : showDefaultState
+      }
     </header>
   );
 };
