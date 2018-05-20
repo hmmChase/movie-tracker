@@ -63,6 +63,7 @@ export class MovieContainer extends Component {
         key={movie.movie_id}
         {...movie}
         toggleFavorite={this.toggleFavorite}
+        isFavorite={this.checkIfFavorite}
       />
     ));
   };
