@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MovieCard.css';
 
 const MovieCard = props => {
@@ -19,9 +20,8 @@ const MovieCard = props => {
   return (
     <div className={`MovieCard ${styleToggle}`} id={movie_id}>
       <img src={imageUrl} alt="movie poster" />
-      <div 
-        className="favoriteToggle"
-        onClick={() => toggleFavorite(movie_id)}>_
+      <div className="favoriteToggle" onClick={() => toggleFavorite(movie_id)}>
+        _
       </div>
       <div className="cardBody">
         <h2>{title}</h2>
@@ -39,6 +39,17 @@ const MovieCard = props => {
       </div>
     </div>
   );
+};
+
+MovieCard.propTypes = {
+  movie_id: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  isFavorite: PropTypes.func.isRequired
 };
 
 export default MovieCard;

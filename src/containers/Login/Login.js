@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
@@ -79,5 +80,14 @@ const mapDispatchToProps = dispatch => ({
   storeUserData: userData => dispatch(storeUserData(userData)),
   loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))
 });
+
+Login.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  favorites: PropTypes.array.isRequired,
+  toggleLogin: PropTypes.func.isRequired,
+  storeUserData: PropTypes.func.isRequired,
+  loadFavorites: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
