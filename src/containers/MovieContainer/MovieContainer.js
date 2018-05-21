@@ -17,7 +17,6 @@ export class MovieContainer extends Component {
 
   getMovieData = async () => {
     const movieData = await fetchMovieData();
-
     this.props.addMovies(movieData);
   };
 
