@@ -1,0 +1,446 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieCard
+    isFavorite={[Function]}
+    movie_id={12}
+    overview="hi ho"
+    poster_path="some_path"
+    release_date="12-13-14"
+    title="blitz"
+    toggleFavorite={[Function]}
+    vote_average={8}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt="movie poster"
+          src="https://image.tmdb.org/t/p/w200some_path"
+/>,
+        <div
+          className="favoriteToggle"
+          onClick={[Function]}
+>
+          _
+</div>,
+        <div
+          className="cardBody"
+>
+          <h2>
+                    blitz
+          </h2>
+          <p>
+                    <span
+                              className="bold-text"
+                    >
+                              Release Date:
+                    </span>
+                     
+                    12-13-14
+          </p>
+          <p>
+                    <span
+                              className="bold-text"
+                    >
+                              Vote Average:
+                    </span>
+                     
+                    8
+          </p>
+          <p>
+                    hi ho
+          </p>
+</div>,
+      ],
+      "className": "MovieCard ",
+      "id": 12,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "movie poster",
+          "src": "https://image.tmdb.org/t/p/w200some_path",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "_",
+          "className": "favoriteToggle",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "_",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2>
+              blitz
+</h2>,
+            <p>
+              <span
+                            className="bold-text"
+              >
+                            Release Date:
+              </span>
+               
+              12-13-14
+</p>,
+            <p>
+              <span
+                            className="bold-text"
+              >
+                            Vote Average:
+              </span>
+               
+              8
+</p>,
+            <p>
+              hi ho
+</p>,
+          ],
+          "className": "cardBody",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "blitz",
+            },
+            "ref": null,
+            "rendered": "blitz",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="bold-text"
+>
+                  Release Date:
+</span>,
+                " ",
+                "12-13-14",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Release Date:",
+                  "className": "bold-text",
+                },
+                "ref": null,
+                "rendered": "Release Date:",
+                "type": "span",
+              },
+              " ",
+              "12-13-14",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="bold-text"
+>
+                  Vote Average:
+</span>,
+                " ",
+                8,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Vote Average:",
+                  "className": "bold-text",
+                },
+                "ref": null,
+                "rendered": "Vote Average:",
+                "type": "span",
+              },
+              " ",
+              8,
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "hi ho",
+            },
+            "ref": null,
+            "rendered": "hi ho",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt="movie poster"
+            src="https://image.tmdb.org/t/p/w200some_path"
+/>,
+          <div
+            className="favoriteToggle"
+            onClick={[Function]}
+>
+            _
+</div>,
+          <div
+            className="cardBody"
+>
+            <h2>
+                        blitz
+            </h2>
+            <p>
+                        <span
+                                    className="bold-text"
+                        >
+                                    Release Date:
+                        </span>
+                         
+                        12-13-14
+            </p>
+            <p>
+                        <span
+                                    className="bold-text"
+                        >
+                                    Vote Average:
+                        </span>
+                         
+                        8
+            </p>
+            <p>
+                        hi ho
+            </p>
+</div>,
+        ],
+        "className": "MovieCard ",
+        "id": 12,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "movie poster",
+            "src": "https://image.tmdb.org/t/p/w200some_path",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "_",
+            "className": "favoriteToggle",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "_",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2>
+                blitz
+</h2>,
+              <p>
+                <span
+                                className="bold-text"
+                >
+                                Release Date:
+                </span>
+                 
+                12-13-14
+</p>,
+              <p>
+                <span
+                                className="bold-text"
+                >
+                                Vote Average:
+                </span>
+                 
+                8
+</p>,
+              <p>
+                hi ho
+</p>,
+            ],
+            "className": "cardBody",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "blitz",
+              },
+              "ref": null,
+              "rendered": "blitz",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="bold-text"
+>
+                    Release Date:
+</span>,
+                  " ",
+                  "12-13-14",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Release Date:",
+                    "className": "bold-text",
+                  },
+                  "ref": null,
+                  "rendered": "Release Date:",
+                  "type": "span",
+                },
+                " ",
+                "12-13-14",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="bold-text"
+>
+                    Vote Average:
+</span>,
+                  " ",
+                  8,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Vote Average:",
+                    "className": "bold-text",
+                  },
+                  "ref": null,
+                  "rendered": "Vote Average:",
+                  "type": "span",
+                },
+                " ",
+                8,
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "hi ho",
+              },
+              "ref": null,
+              "rendered": "hi ho",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
