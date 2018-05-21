@@ -15,26 +15,22 @@ export const Header = props => {
 
   const showDefaultState = (
     <div className="userControls">
-      <NavLink to="/login">
-        <button>Login</button>
+      <NavLink className="navLink" to="/login">
+        <button className="loginButton"></button>
       </NavLink>
-      <NavLink to="/signup">
-        <button>Sign Up</button>
+      <NavLink className="navLink" to="/signup">
+        <button className="signUpButton"></button>
       </NavLink>
     </div>
   );
 
   const showLoggedInState = (
     <div className="userControls">
-      <NavLink to="/">
-        <button className="logOut" onClick={props.toggleLogin}>
-          Log Out
-        </button>
+      <NavLink to='/favorites'> 
+        <button className="favoritesButton" onClick={handleClick}></button>
       </NavLink>
-      <NavLink to="/favorites">
-        <button className="favorites" onClick={handleClick}>
-          Favorites
-        </button>
+      <NavLink to="/">
+        <button className="logOutButton" onClick={props.toggleLogin}></button>
       </NavLink>
       <p>Welcome back, {props.name}</p>
     </div>

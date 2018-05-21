@@ -1,32 +1,49 @@
+header {
+  height: 9rem;
+}
+
 .userControls {
-  text-align: right;
   position: relative;
-  bottom: 120px;
+  bottom: 5rem;
+  left: 67rem;
+  display: flex;
+  text-align: right;
+
+  .navLink {
+    text-decoration: none;
+  }
+
+  .favoritesButton {
+    background-image: url('https://fontmeme.com/permalink/180521/3eca9b896f474ebbadf5a6e319ec2756.png');
+    background-size: 90%;
+  }
+
+  .favoritesButton:hover {
+    background-image:url('https://fontmeme.com/permalink/180521/ccdff501cc41a10b3c92255dced867cb.png');
+    background-size: 80%;
+  }
+
+  .logOutButton {
+    background-image: url('https://fontmeme.com/permalink/180521/bd5a24ecf1b03206300104fe5f4018b9.png');
+    background-position-y: 80%;
+  }
+
+  .logOutButton:hover {
+    background-image: url('https://fontmeme.com/permalink/180521/8caf3896f2126801e272c59b6e1f8dee.png');
+  }
 
   button {
-    background: #77b6e0;
-    background-image: linear-gradient(to bottom, #77b6e0, #417494);
-    border-radius: 5px;
-    text-shadow: 1px 1px 3px #666666;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
+    display: flex;
     margin-right: 1.5rem;
   }
 
-  button:hover {
-    background: #59a5d4;
-    background-image: linear-gradient(to bottom, #59a5d4, #3a84b5);
-    cursor: pointer;
-  }
-
   p {
-    color: lightblue;
-    font-size: 1.5rem;
     position: relative;
-    top: 15px;
-    right: 100px;
+    top: 55px;
+    right: 330px;
+    color: lightblue;
+    font-family: 'Permanent Marker';
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
 }
