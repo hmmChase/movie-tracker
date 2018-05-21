@@ -4,7 +4,6 @@ import Header from '../../containers/Header/Header';
 import Login from '../../containers/Login/Login';
 import SignUp from '../../containers/SignUp/SignUp';
 import MovieContainer from '../../containers/MovieContainer/MovieContainer';
-
 import './App.css';
 
 class App extends Component {
