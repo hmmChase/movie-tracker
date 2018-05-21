@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { toggleLogin, loadFavorites } from '../../actions';
@@ -25,7 +26,7 @@ const Header = props => {
 
   const showLoggedInState = (
     <div className="userControls">
-      <NavLink to='/'> 
+      <NavLink to="/">
         <button onClick={props.toggleLogin}>Log Out</button>
       </NavLink>
       <NavLink to="/favorites">
@@ -38,16 +39,13 @@ const Header = props => {
   return (
     <header>
       <NavLink to="/">
-        <img 
+        <img
           src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
-          alt="movie-tracker logo" 
+          alt="movie-tracker logo"
           className="headerLogo"
         />
       </NavLink>
-      {props.loggedIn 
-        ? showLoggedInState
-        : showDefaultState
-      }
+      {props.loggedIn ? showLoggedInState : showDefaultState}
     </header>
   );
 };
@@ -62,5 +60,13 @@ export const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
   loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))
 });
+
+Header.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  name: PropTypes.string,
+  userId: PropTypes.number,
+  toggleLogin: PropTypes.func.isRequired,
+  loadFavorites: PropTypes.func.isRequired
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

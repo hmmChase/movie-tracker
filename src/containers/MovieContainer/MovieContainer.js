@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchMovieData } from '../../utils/fetchMovieData';
@@ -84,6 +85,16 @@ export const mapDispatchToProps = dispatch => ({
   addMovies: movies => dispatch(addMovies(movies)),
   loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))
 });
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  favorites: PropTypes.array.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  userId: PropTypes.number,
+  addMovies: PropTypes.func.isRequired,
+  loadFavorites: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired
+};
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(MovieContainer)
