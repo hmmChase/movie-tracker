@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
 import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import { toggleLogin, storeUserData, loadFavorites } from '../../actions';
+import './Login.css';
 
 class Login extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -55,6 +56,7 @@ class Login extends Component {
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
+            className="inputField"
           />
           <input
             type="password"
@@ -62,8 +64,9 @@ class Login extends Component {
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
+            className="inputField"
           />
-          <button>Login</button>
+          <button className="loginButton"></button>
         </form>
       </div>
     );
