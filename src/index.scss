@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/jFnaQEy/damaged-old-movie-background-loop-ready-animation-of-empty-old-film-background_h361ly5e__F0000.png');
+  font-family: 'Open Sans', sans-serif;  
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  color: #1437DC;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  padding: 10px 20px;
+  border: 3px solid #1437DC;
+  border-radius: .5rem;
+  background: #76B3B5;
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+}
+
+.loginButton {
+  background-image: url('https://fontmeme.com/permalink/180521/50c4722ae7443161acb863f879cd885c.png');
+  background-position-y: 80%;
+}
+
+.loginButton:hover {
+  background-image: url('https://fontmeme.com/permalink/180521/2bb2a1cb46bbaeae304b6dd3532a1adc.png');
+}
+
+.signUpButton {
+  background-image: url('https://fontmeme.com/permalink/180521/96ce498a0b274f2a4b3bdd71ba60dd24.png');
+}
+
+.signUpButton:hover {
+  background-image: url('https://fontmeme.com/permalink/180521/5d155d16d136592e45e5225ca4f1fa5e.png');
+}
