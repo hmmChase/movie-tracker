@@ -23,4 +23,10 @@ describe('MovieCard', () => {
   it('matches the snapshot', () => {
     expect(movieCard).toMatchSnapshot();
   });
+
+  it('calls toggleFavorite when favoite button is clicked', () => {
+    movieCard.find('.favoriteToggle').simulate('click');
+
+    expect(mockProps.toggleFavorite).toHaveBeenCalledTimes(1);
+  });
 });
