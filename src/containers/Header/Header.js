@@ -6,7 +6,7 @@ import { toggleLogin, loadFavorites } from '../../actions';
 import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import './Header.css';
 
-const Header = props => {
+export const Header = props => {
   const handleClick = async () => {
     const favoritesArray = await fetchFavoriteData(props.userId);
 
@@ -27,10 +27,14 @@ const Header = props => {
   const showLoggedInState = (
     <div className="userControls">
       <NavLink to="/">
-        <button onClick={props.toggleLogin}>Log Out</button>
+        <button className="logOut" onClick={props.toggleLogin}>
+          Log Out
+        </button>
       </NavLink>
       <NavLink to="/favorites">
-        <button onClick={handleClick}>Favorites</button>
+        <button className="favorites" onClick={handleClick}>
+          Favorites
+        </button>
       </NavLink>
       <p>Welcome back, {props.name}</p>
     </div>
