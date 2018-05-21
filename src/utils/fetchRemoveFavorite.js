@@ -7,7 +7,7 @@ export const fetchRemoveFavorite = async (user_id, movie_id) => {
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
-    response;
+    return response;
   } catch (error) {
     throw new Error(`Network request failed. (error: ${error.message})`);
   }

@@ -10,7 +10,7 @@ export const fetchAddUser = async user => {
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
-    response;
+    return response;
   } catch (error) {
     throw new Error(`Network request failed. (error: ${error.message})`);
   }

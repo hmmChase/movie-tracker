@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
 import { fetchAddUser } from '../../utils/fetchAddUser';
 import { toggleLogin, storeUserData } from '../../actions';
+import './SignUp.css';
 
 class Signup extends Component {
   constructor() {
@@ -47,8 +48,8 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        Sign up for a new account
+      <div className="SignUp">
+        <p>Sign up for a new account</p>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -56,6 +57,7 @@ class Signup extends Component {
             placeholder="Enter a Name"
             value={this.state.name}
             onChange={this.handleChange}
+            className="inputField"
           />
           <input
             type="text"
@@ -63,6 +65,7 @@ class Signup extends Component {
             placeholder="Enter an Email"
             value={this.state.email}
             onChange={this.handleChange}
+            className="inputField"
           />
           <input
             type="password"
@@ -70,8 +73,9 @@ class Signup extends Component {
             placeholder="Enter a Password"
             value={this.state.password}
             onChange={this.handleChange}
+            className="inputField"
           />
-          <button>Sign Up!</button>
+          <button className="signUpButton"></button>
         </form>
       </div>
     );
