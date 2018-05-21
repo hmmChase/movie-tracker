@@ -18,7 +18,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <withRouter(Connect(Header)) />,
+        <withRouter(Connect(Component)) />,
         <Route
           component={[Function]}
           exact={true}
@@ -109,7 +109,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <withRouter(Connect(Header)) />,
+          <withRouter(Connect(Component)) />,
           <Route
             component={[Function]}
             exact={true}
