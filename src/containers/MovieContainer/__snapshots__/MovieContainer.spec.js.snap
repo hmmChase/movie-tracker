@@ -6,11 +6,37 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MovieContainer
     addMovies={[Function]}
-    favorites={Array []}
+    favorites={
+        Array [
+            Object {
+              "movie_id": 421,
+              "overview": "mock overview",
+              "poster_path": "/movie-path/poster.png",
+              "release_date": "12-45-68",
+              "title": "mock title",
+              "vote_average": 5,
+            },
+          ]
+    }
     loadFavorites={[Function]}
-    location={Object {}}
+    location={
+        Object {
+            "pathname": "/",
+          }
+    }
     loggedIn={false}
-    movies={Array []}
+    movies={
+        Array [
+            Object {
+              "movie_id": 147,
+              "overview": "mock overview",
+              "poster_path": "/movie-path/poster.png",
+              "release_date": "12-45-68",
+              "title": "mock title",
+              "vote_average": 5,
+            },
+          ]
+    }
     userId={1}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -25,11 +51,41 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [],
+      "children": Array [
+        <MovieCard
+          isFavorite={[Function]}
+          movie_id={147}
+          overview="mock overview"
+          poster_path="/movie-path/poster.png"
+          release_date="12-45-68"
+          title="mock title"
+          toggleFavorite={[Function]}
+          vote_average={5}
+/>,
+      ],
       "className": "MovieContainer",
     },
     "ref": null,
-    "rendered": Array [],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "147",
+        "nodeType": "function",
+        "props": Object {
+          "isFavorite": [Function],
+          "movie_id": 147,
+          "overview": "mock overview",
+          "poster_path": "/movie-path/poster.png",
+          "release_date": "12-45-68",
+          "title": "mock title",
+          "toggleFavorite": [Function],
+          "vote_average": 5,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
     "type": "main",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -38,11 +94,41 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
+        "children": Array [
+          <MovieCard
+            isFavorite={[Function]}
+            movie_id={147}
+            overview="mock overview"
+            poster_path="/movie-path/poster.png"
+            release_date="12-45-68"
+            title="mock title"
+            toggleFavorite={[Function]}
+            vote_average={5}
+/>,
+        ],
         "className": "MovieContainer",
       },
       "ref": null,
-      "rendered": Array [],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "147",
+          "nodeType": "function",
+          "props": Object {
+            "isFavorite": [Function],
+            "movie_id": 147,
+            "overview": "mock overview",
+            "poster_path": "/movie-path/poster.png",
+            "release_date": "12-45-68",
+            "title": "mock title",
+            "toggleFavorite": [Function],
+            "vote_average": 5,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": "main",
     },
   ],
