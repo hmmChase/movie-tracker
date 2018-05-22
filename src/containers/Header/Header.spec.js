@@ -89,6 +89,7 @@ describe('Header', () => {
       expect(mappedProps).toEqual(expected);
     });
   });
+
   describe('mapDispatchToProps', () => {
     it('calls dispatch on toggleLogin', () => {
       const mockDispatch = jest.fn();
