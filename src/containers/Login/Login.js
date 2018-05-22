@@ -7,7 +7,7 @@ import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 import { toggleLogin, storeUserData, loadFavorites } from '../../actions';
 import './Login.css';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -36,7 +36,6 @@ class Login extends Component {
       alert('No such user');
     } else if (foundUser.password === this.state.password) {
       const favoritesArray = await fetchFavoriteData(foundUser.id);
-
       this.props.toggleLogin();
       this.props.storeUserData(foundUser);
       this.props.loadFavorites(favoritesArray);
@@ -66,19 +65,19 @@ class Login extends Component {
             onChange={this.handleChange}
             className="inputField"
           />
-          <button className="loginButton"></button>
+          <button className="loginButton" />
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   loggedIn: state.user.loggedIn,
   favorites: state.user.favorites
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
   storeUserData: userData => dispatch(storeUserData(userData)),
   loadFavorites: favoritesArray => dispatch(loadFavorites(favoritesArray))

@@ -41,26 +41,22 @@ ShallowWrapper {
           <NavLink
                     activeClassName="active"
                     ariaCurrent="true"
-                    to="/"
+                    to="/favorites"
           >
                     <button
-                              className="logOut"
+                              className="favoritesButton"
                               onClick={[Function]}
-                    >
-                              Log Out
-                    </button>
+                    />
           </NavLink>
           <NavLink
                     activeClassName="active"
                     ariaCurrent="true"
-                    to="/favorites"
+                    to="/"
           >
                     <button
-                              className="favorites"
+                              className="logOutButton"
                               onClick={[Function]}
-                    >
-                              Favorites
-                    </button>
+                    />
           </NavLink>
           <p>
                     Welcome back, 
@@ -110,26 +106,22 @@ ShallowWrapper {
             <NavLink
               activeClassName="active"
               ariaCurrent="true"
-              to="/"
+              to="/favorites"
 >
               <button
-                            className="logOut"
+                            className="favoritesButton"
                             onClick={[Function]}
-              >
-                            Log Out
-              </button>
+              />
 </NavLink>,
             <NavLink
               activeClassName="active"
               ariaCurrent="true"
-              to="/favorites"
+              to="/"
 >
               <button
-                            className="favorites"
+                            className="logOutButton"
                             onClick={[Function]}
-              >
-                            Favorites
-              </button>
+              />
 </NavLink>,
             <p>
               Welcome back, 
@@ -148,12 +140,10 @@ ShallowWrapper {
               "activeClassName": "active",
               "ariaCurrent": "true",
               "children": <button
-                className="logOut"
+                className="favoritesButton"
                 onClick={[Function]}
->
-                Log Out
-</button>,
-              "to": "/",
+/>,
+              "to": "/favorites",
             },
             "ref": null,
             "rendered": Object {
@@ -161,12 +151,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Log Out",
-                "className": "logOut",
+                "className": "favoritesButton",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Log Out",
+              "rendered": null,
               "type": "button",
             },
             "type": [Function],
@@ -179,12 +168,10 @@ ShallowWrapper {
               "activeClassName": "active",
               "ariaCurrent": "true",
               "children": <button
-                className="favorites"
+                className="logOutButton"
                 onClick={[Function]}
->
-                Favorites
-</button>,
-              "to": "/favorites",
+/>,
+              "to": "/",
             },
             "ref": null,
             "rendered": Object {
@@ -192,12 +179,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Favorites",
-                "className": "favorites",
+                "className": "logOutButton",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Favorites",
+              "rendered": null,
               "type": "button",
             },
             "type": [Function],
@@ -249,26 +235,22 @@ ShallowWrapper {
             <NavLink
                         activeClassName="active"
                         ariaCurrent="true"
-                        to="/"
+                        to="/favorites"
             >
                         <button
-                                    className="logOut"
+                                    className="favoritesButton"
                                     onClick={[Function]}
-                        >
-                                    Log Out
-                        </button>
+                        />
             </NavLink>
             <NavLink
                         activeClassName="active"
                         ariaCurrent="true"
-                        to="/favorites"
+                        to="/"
             >
                         <button
-                                    className="favorites"
+                                    className="logOutButton"
                                     onClick={[Function]}
-                        >
-                                    Favorites
-                        </button>
+                        />
             </NavLink>
             <p>
                         Welcome back, 
@@ -318,26 +300,22 @@ ShallowWrapper {
               <NavLink
                 activeClassName="active"
                 ariaCurrent="true"
-                to="/"
+                to="/favorites"
 >
                 <button
-                                className="logOut"
+                                className="favoritesButton"
                                 onClick={[Function]}
-                >
-                                Log Out
-                </button>
+                />
 </NavLink>,
               <NavLink
                 activeClassName="active"
                 ariaCurrent="true"
-                to="/favorites"
+                to="/"
 >
                 <button
-                                className="favorites"
+                                className="logOutButton"
                                 onClick={[Function]}
-                >
-                                Favorites
-                </button>
+                />
 </NavLink>,
               <p>
                 Welcome back, 
@@ -356,12 +334,10 @@ ShallowWrapper {
                 "activeClassName": "active",
                 "ariaCurrent": "true",
                 "children": <button
-                  className="logOut"
+                  className="favoritesButton"
                   onClick={[Function]}
->
-                  Log Out
-</button>,
-                "to": "/",
+/>,
+                "to": "/favorites",
               },
               "ref": null,
               "rendered": Object {
@@ -369,12 +345,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Log Out",
-                  "className": "logOut",
+                  "className": "favoritesButton",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "Log Out",
+                "rendered": null,
                 "type": "button",
               },
               "type": [Function],
@@ -387,12 +362,10 @@ ShallowWrapper {
                 "activeClassName": "active",
                 "ariaCurrent": "true",
                 "children": <button
-                  className="favorites"
+                  className="logOutButton"
                   onClick={[Function]}
->
-                  Favorites
-</button>,
-                "to": "/favorites",
+/>,
+                "to": "/",
               },
               "ref": null,
               "rendered": Object {
@@ -400,12 +373,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Favorites",
-                  "className": "favorites",
+                  "className": "logOutButton",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "Favorites",
+                "rendered": null,
                 "type": "button",
               },
               "type": [Function],
