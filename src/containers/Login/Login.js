@@ -32,7 +32,9 @@ export class Login extends Component {
       user => user.email === this.state.email.toLowerCase()
     );
 
-    if (!foundUser) {
+    if (this.state.email === "") {
+      alert('Please enter an email address');
+    } else if (!foundUser) {
       alert('No such user');
     } else if (foundUser.password === this.state.password) {
       const favoritesArray = await fetchFavoriteData(foundUser.id);
