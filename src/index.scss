@@ -19,19 +19,11 @@ html {
 body {
   min-height: 100%;
   background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/jFnaQEy/damaged-old-movie-background-loop-ready-animation-of-empty-old-film-background_h361ly5e__F0000.png');
-  font-family: 'Open Sans', sans-serif;  
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-button:active {
-  color: #1437DC;
+  font-family: 'Open Sans', sans-serif;
 }
 
 button {
-  width: 150px;
+  width: 140px;
   height: 50px;
   padding: 10px 20px;
   border: 3px solid #1437DC;
@@ -40,6 +32,14 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  color: #1437DC;
 }
 
 .loginButton {
@@ -57,4 +57,14 @@ button {
 
 .signUpButton:hover {
   background-image: url('https://fontmeme.com/permalink/180521/5d155d16d136592e45e5225ca4f1fa5e.png');
+}
+
+::-webkit-input-placeholder {
+  color: rgb(71, 92, 160);
+  font-family: 'Permanent Marker';
+}
+
+::-moz-input-placeholder {
+  color: rgb(71, 92, 160);
+  font-family: 'Permanent Marker';
 }
