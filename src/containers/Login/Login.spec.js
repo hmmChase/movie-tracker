@@ -194,12 +194,6 @@ describe('Login', () => {
           }
         ]
       };
-      const foundUser = {
-        id: 1,
-        name: 'Taylor',
-        password: 'password',
-        email: 'tman2272@aol.com'
-      };
       const favoritesArray = [];
       fetchUserData.mockImplementation(() => Promise.resolve(userData));
       fetchFavoriteData.mockImplementation(() =>
@@ -224,12 +218,6 @@ describe('Login', () => {
             email: 'tman2272@aol.com'
           }
         ]
-      };
-      const foundUser = {
-        id: 1,
-        name: 'Taylor',
-        password: 'password',
-        email: 'tman2272@aol.com'
       };
       const favoritesArray = [];
       fetchUserData.mockImplementation(() => Promise.resolve(userData));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import {
   MovieContainer,
   mapStateToProps,
@@ -68,8 +68,8 @@ describe('MovieContainer', () => {
   });
 
   describe('getMovieData', () => {
-    it('calls fetchMovieData', () => {
-      movieContainer.instance().getMovieData();
+    it('calls fetchMovieData', async () => {
+      await movieContainer.instance().getMovieData();
 
       expect(fetchMovieData).toHaveBeenCalledTimes(1);
     });
@@ -80,15 +80,16 @@ describe('MovieContainer', () => {
       expect(mockProps.addMovies).toHaveBeenCalledTimes(1);
     });
   });
+
   describe('toggleFavorite', () => {
     it('if loggedIn is true, and checkIfFavorite is true, calls removeFavorite , ', () => {
       mockProps.loggedIn = true;
       movieContainer = shallow(<MovieContainer {...mockProps} />, {
         disableLifecycleMethods: true
       });
-      const checkIfFavorite = (movieContainer.instance().checkIfFavorite = jest
+      movieContainer.instance().checkIfFavorite = jest
         .fn()
-        .mockImplementation(() => true));
+        .mockImplementation(() => true);
       const removeFavorite = (movieContainer.instance().removeFavorite = jest.fn());
 
       movieContainer.instance().toggleFavorite();

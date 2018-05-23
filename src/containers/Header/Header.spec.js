@@ -1,9 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header';
 import { toggleLogin, loadFavorites } from '../../actions/';
-import { fetchFavoriteData } from '../../utils/fetchFavoriteData';
 jest.mock('../../utils/fetchFavoriteData');
 
 describe('Header', () => {
@@ -21,53 +19,10 @@ describe('Header', () => {
   });
 
   it('matches snapshot with user loggedIn true', () => {
-    const mockState = {
-      user: {
-        loggedIn: true,
-        name: 'mock name',
-        id: 1
-      }
-    };
-    const mappedProps = mapStateToProps(mockState);
-    header = shallow(
-      <Header
-        {...mappedProps}
-        toggleLogin={jest.fn()}
-        loadFavorites={jest.fn()}
-      />
-    );
+    mockProps.loggedIn = true;
+    header = shallow(<Header {...mockProps} />);
 
     expect(header).toMatchSnapshot();
-  });
-
-  it.skip('calls toggleLogin when logout button is click', () => {
-    // how to expect event handler was called
-
-    const mockState = {
-      user: {
-        loggedIn: true,
-        name: 'mock name',
-        id: 1
-      }
-    };
-    const mappedProps = mapStateToProps(mockState);
-    header = shallow(
-      <Header
-        {...mappedProps}
-        toggleLogin={jest.fn()}
-        loadFavorites={jest.fn()}
-      />
-    );
-
-    // console.log(header.debug());
-
-    const logOuts = header.find('.logOut');
-
-    console.log(logOuts.debug());
-
-    console.log(logOuts.simulate('click'));
-
-    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   describe('mapStateToProps', () => {

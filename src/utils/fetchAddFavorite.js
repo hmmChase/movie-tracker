@@ -14,9 +14,8 @@ export const fetchAddFavorite = async (movie, user_id) => {
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
-    
     return response;
   } catch (error) {
-    throw new Error(`Network request failed. (error: ${error.message})`);    
+    throw new Error(`Network request failed. (error: ${error.message})`);
   }
 };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData } from '../../utils/fetchUserData';
@@ -6,7 +7,7 @@ import { fetchAddUser } from '../../utils/fetchAddUser';
 import { toggleLogin, storeUserData } from '../../actions';
 import './SignUp.css';
 
-class Signup extends Component {
+export class SignUp extends Component {
   constructor() {
     super();
 
@@ -75,16 +76,22 @@ class Signup extends Component {
             onChange={this.handleChange}
             className="inputField"
           />
-          <button className="signUpButton"></button>
+          <button className="SignUpButton" />
         </form>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   toggleLogin: () => dispatch(toggleLogin()),
   storeUserData: userData => dispatch(storeUserData(userData))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Signup));
+SignUp.propTypes = {
+  toggleLogin: PropTypes.func.isRequired,
+  storeUserData: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(SignUp));
