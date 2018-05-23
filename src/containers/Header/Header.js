@@ -40,7 +40,7 @@ export const Header = props => {
     <header>
       <NavLink to="/">
         <img
-          src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+          src="https://goo.gl/qAbw5n"
           alt="movie-tracker logo"
           className="headerLogo"
         />

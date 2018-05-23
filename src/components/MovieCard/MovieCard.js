@@ -46,6 +46,10 @@ MovieCard.propTypes = {
   poster_path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   release_date: PropTypes.string.isRequired,
+  vote_average: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   overview: PropTypes.string.isRequired,
   toggleFavorite: PropTypes.func.isRequired,
   isFavorite: PropTypes.func.isRequired

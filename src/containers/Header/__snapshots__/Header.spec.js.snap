@@ -32,7 +32,7 @@ ShallowWrapper {
           <img
                     alt="movie-tracker logo"
                     className="headerLogo"
-                    src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+                    src="https://goo.gl/qAbw5n"
           />
 </NavLink>,
         <div
@@ -77,7 +77,7 @@ ShallowWrapper {
           "children": <img
             alt="movie-tracker logo"
             className="headerLogo"
-            src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+            src="https://goo.gl/qAbw5n"
 />,
           "to": "/",
         },
@@ -89,7 +89,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "movie-tracker logo",
             "className": "headerLogo",
-            "src": "https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png",
+            "src": "https://goo.gl/qAbw5n",
           },
           "ref": null,
           "rendered": null,
@@ -226,7 +226,7 @@ ShallowWrapper {
             <img
                         alt="movie-tracker logo"
                         className="headerLogo"
-                        src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+                        src="https://goo.gl/qAbw5n"
             />
 </NavLink>,
           <div
@@ -271,7 +271,7 @@ ShallowWrapper {
             "children": <img
               alt="movie-tracker logo"
               className="headerLogo"
-              src="https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png"
+              src="https://goo.gl/qAbw5n"
 />,
             "to": "/",
           },
@@ -283,7 +283,7 @@ ShallowWrapper {
             "props": Object {
               "alt": "movie-tracker logo",
               "className": "headerLogo",
-              "src": "https://fontmeme.com/permalink/180520/17ff7fa8ddbb9659c011cbf5dacff735.png",
+              "src": "https://goo.gl/qAbw5n",
             },
             "ref": null,
             "rendered": null,
