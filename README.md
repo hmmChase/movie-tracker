@@ -27,5 +27,5 @@ Install the dependencies -> `npm install` -> Start server -> `npm start` -> Once
 ![mobile comp](https://i.imgur.com/LoAhs7V.png)
 
 ### The Team
-[Chase Richards](https://github.com/hmmChase),
+[Chase Richard](https://github.com/hmmChase),
 [Jim Dechant](https://github.com/Ecksi)
