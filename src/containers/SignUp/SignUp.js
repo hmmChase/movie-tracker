@@ -76,7 +76,7 @@ export class SignUp extends Component {
             onChange={this.handleChange}
             className="inputField"
           />
-          <button className="SignUpButton" />
+          <button className="signUpButton" />
         </form>
       </div>
     );

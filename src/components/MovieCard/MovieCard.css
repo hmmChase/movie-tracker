@@ -15,8 +15,8 @@
 
 .favoriteToggle {
   position: relative;
-  bottom: 280px;
-  left: 255px;
+  bottom: 55%;
+  left: 84%;
   width: 50px;
   height: 50px;
   border: none;
@@ -47,3 +47,25 @@
     font-size: 1em; }
   .cardBody span {
     font-weight: bold; }
+
+@media only screen and (max-width: 1200px) {
+  .MovieCard {
+    width: 20%; }
+  .favoriteToggle {
+    left: 80%; }
+  .cardBody h2 {
+    font-size: 1.2em; }
+  .cardBody p {
+    font-size: 0.8em; } }
+
+@media only screen and (max-width: 1080px) {
+  .MovieCard {
+    width: 25%; } }
+
+@media only screen and (max-width: 800px) {
+  .MovieCard {
+    width: 40%; } }
+
+@media only screen and (max-width: 700px) {
+  .MovieCard {
+    width: 80%; } }
