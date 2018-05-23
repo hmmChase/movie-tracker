@@ -21,7 +21,10 @@ Install the dependencies -> `npm install` -> Start server -> `npm start` -> Once
 
 ### Our comp
 
-![my swapi comp](https://i.imgur.com/fSj7vNe.jpg)
+![comp](https://i.imgur.com/R4ogszs.jpg)
+![comp2](https://i.imgur.com/miy96qJ.jpg)
+![mobile comp](https://i.imgur.com/fKOsyvB.png)
+![mobile comp](https://i.imgur.com/LoAhs7V.png)
 
 ### The Team
 [Chase Richards](https://github.com/hmmChase),
