@@ -1,6 +1,6 @@
-import { fetchRemoveFavorite } from '../fetchRemoveFavorite';
+import { fetchAddUser } from '../fetchAddUser';
 
-describe('fetchRemoveFavorite', () => {
+describe('fetchAddUser', () => {
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
@@ -12,15 +12,18 @@ describe('fetchRemoveFavorite', () => {
   });
 
   it('calls fetch with correct params', async () => {
-    const user_id = 1;
-    const movie_id = 5;
-    const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
-    const options = { method: 'DELETE' };
+    const url = '/api/users/new';
+    const user = {name: 'jim'};
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: { 'Content-Type': 'application/json' }
+    };
 
-    await fetchRemoveFavorite(user_id, movie_id);
+    await fetchAddUser(user);
 
     expect(window.fetch).toHaveBeenCalledTimes(1);
-    expect(window.fetch).toHaveBeenLastCalledWith(url, options);
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
 
   it('throws an error if response.ok is false', async () => {
@@ -33,13 +36,13 @@ describe('fetchRemoveFavorite', () => {
     );
 
     let expected = Error(`Network request failed. (error: 500)`);
-    await expect(fetchRemoveFavorite()).rejects.toEqual(expected);
+    await expect(fetchAddUser()).rejects.toEqual(expected);
   });
 
   it('throws an error if fetch fails', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error('mock error')));
     let expected = Error('Network request failed. (error: mock error)');
 
-    await expect(fetchRemoveFavorite()).rejects.toEqual(expected);
+    await expect(fetchAddUser()).rejects.toEqual(expected);
   });
 });

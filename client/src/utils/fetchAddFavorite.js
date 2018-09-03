@@ -1,12 +1,16 @@
-export const fetchAddUser = async user => {
+export const fetchAddFavorite = async (movie, user_id) => {
   try {
-    const url = 'http://localhost:3000/api/users/new';
+    const url = '/api/users/favorites/new';
     const options = {
       method: 'POST',
-      body: JSON.stringify(user),
+      body: JSON.stringify({
+        ...movie,
+        user_id
+      }),
       headers: { 'Content-Type': 'application/json' }
     };
     const response = await fetch(url, options);
+
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
@@ -14,5 +18,4 @@ export const fetchAddUser = async user => {
   } catch (error) {
     throw new Error(`Network request failed. (error: ${error.message})`);
   }
-
 };

@@ -1,4 +1,4 @@
-import apiKey from '../private/apiKey';
+import { apiKey } from '../private/apiKey';
 import { doFetch } from './doFetch';
 
 export const fetchMovieData = async () => {

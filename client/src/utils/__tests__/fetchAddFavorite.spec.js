@@ -12,7 +12,7 @@ describe('fetchAddFavorite', () => {
   });
 
   it('calls fetch with correct params', async () => {
-    const url = 'http://localhost:3000/api/users/favorites/new';
+    const url = '/api/users/favorites/new';
     const movie = { title: 'movie' };
     const user_id = 1;
     const options = {
