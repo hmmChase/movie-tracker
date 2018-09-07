@@ -6,9 +6,10 @@ var bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const app = express();
 const users = require('./routes/usersApi');
+const environment = process.env.NODE_ENV || 'development';
 require('dotenv').config();
 
-console.log('env', process.env.API_KEY);
+// console.log('env', process.env.API_KEY);
 
 app.use(cors());
 app.use(function(req, res, next) {
