@@ -5,6 +5,10 @@ import Login from '../../containers/Login/Login';
 import SignUp from '../../containers/SignUp/SignUp';
 import MovieContainer from '../../containers/MovieContainer/MovieContainer';
 import './App.css';
+require('dotenv').config();
+console.log(process.env.NODE_ENV);
+console.log(process.env.API_KEY);
+console.log(process.env.REACT_APP_API_KEY);
 
 class App extends Component {
   render() {

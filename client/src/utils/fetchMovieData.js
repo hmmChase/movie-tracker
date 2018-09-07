@@ -1,5 +1,12 @@
-import { apiKey } from '../private/apiKey';
+// import { apiKey } from '../private/apiKey';
 import { doFetch } from './doFetch';
+
+require('dotenv').config();
+console.log(process.env.NODE_ENV);
+console.log(process.env.API_KEY);
+console.log(process.env.REACT_APP_API_KEY);
+
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export const fetchMovieData = async () => {
   const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=';

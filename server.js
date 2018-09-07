@@ -3,9 +3,12 @@ const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
 var bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const app = express();
 const users = require('./routes/usersApi');
+require('dotenv').config();
+
+console.log('env', process.env.API_KEY);
 
 app.use(cors());
 app.use(function(req, res, next) {
